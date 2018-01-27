@@ -7,11 +7,10 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+// global variables, usually bad style
 var clients = make(map[*websocket.Conn]bool) // connected clients
 var broadcast = make(chan Message)           // broadcast channel
-
-// configure the upgrader
-var upgrader = websocket.Upgrader{}
+var upgrader = websocket.Upgrader{}          // configure the upgrader
 
 // Message object defined here
 type Message struct {
@@ -36,4 +35,33 @@ func main() {
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
+}
+
+func handleConnections(w http.ResponseWriter, r *http.Request) {
+	// upgrade intial GET request to a websocket
+	ws, err := upgrader.Upgrade(w, r, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer ws.Close()
+
+	// register our new client by adding it to the global "clients" map
+	clients[ws] = true
+	// an infinite loop that listens for a new message to be written to the websocket
+	// unserializes it from JSON to a Message object and then puts it into the broadcast channel
+	for {
+		var msg Message
+		// read in new message as JSON and map it to a Message object
+		err := ws.ReadJSON(&msg)
+		if err != nil {
+			log.Printf("error: %v", err)
+			// we are assuming that if there is an error, the client is no longer connected,
+			// therefor we remove them from the clients map and exit the loops
+			delete(clients, ws)
+			break
+		}
+		// send the newly recieved message to the broadcast channel
+		broadcast <- msg
+	}
+
 }
