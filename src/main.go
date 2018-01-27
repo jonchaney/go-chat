@@ -65,3 +65,20 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 	}
 
 }
+
+// loop that continously reads from the 'broadcast' channel and then relays the message
+// to all the the clients over there Websocket connection
+func handleMessages() {
+	for {
+		msg := <-broadcast
+		// send it to every client that is currently connected
+		for client := range clients {
+			err := client.WriteJSON(msg)
+			if err != nil {
+				log.Println("error: %v", err)
+				client.Close()
+				delete(clients, client)
+			}
+		}
+	}
+}
