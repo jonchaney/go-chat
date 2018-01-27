@@ -1,3 +1,4 @@
+// this code is based off of the tutorial at https://scotch.io/bar-talk/build-a-realtime-chat-server-with-go-and-websockets
 package main
 
 import (
@@ -21,10 +22,10 @@ type Message struct {
 
 func main() {
 	// create simple file server
-	fs := http.FileServer(http.Dir("../public"))
+	fs := http.FileServer(http.Dir("../public/frontend"))
 	http.Handle("/", fs)
 
-	// configure websocket route
+	// configure WebSocket route
 	http.HandleFunc("/ws", handleConnections)
 
 	// start a go routine to start listenind for incoming chat messages
@@ -37,8 +38,9 @@ func main() {
 	}
 }
 
+// handles incoming WebSocket connections
 func handleConnections(w http.ResponseWriter, r *http.Request) {
-	// upgrade intial GET request to a websocket
+	// upgrade intial GET request to a WebSocket
 	ws, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Fatal(err)
@@ -47,7 +49,7 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 
 	// register our new client by adding it to the global "clients" map
 	clients[ws] = true
-	// an infinite loop that listens for a new message to be written to the websocket
+	// an infinite loop that listens for a new message to be written to the WebSocket
 	// unserializes it from JSON to a Message object and then puts it into the broadcast channel
 	for {
 		var msg Message
@@ -67,7 +69,7 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 }
 
 // loop that continously reads from the 'broadcast' channel and then relays the message
-// to all the the clients over there Websocket connection
+// to all the the clients over their WebSocket connection
 func handleMessages() {
 	for {
 		msg := <-broadcast
@@ -75,7 +77,7 @@ func handleMessages() {
 		for client := range clients {
 			err := client.WriteJSON(msg)
 			if err != nil {
-				log.Println("error: %v", err)
+				log.Printf("error: %v", err)
 				client.Close()
 				delete(clients, client)
 			}
