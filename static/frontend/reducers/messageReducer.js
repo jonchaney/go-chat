@@ -2,7 +2,7 @@ import merge from 'lodash/merge';
 
 const defaultState = {};
 
-const DefaultReducer = (state = defaultState, action) => {
+const MessageReducer = (state = defaultState, action) => {
   Object.freeze(state);
   let newState;
   switch (action.type) {
@@ -13,4 +13,4 @@ const DefaultReducer = (state = defaultState, action) => {
   }
 };
 
-export default DefaultReducer;
+export default MessageReducer;
