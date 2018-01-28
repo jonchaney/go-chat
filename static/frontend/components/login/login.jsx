@@ -3,26 +3,29 @@ import React, { Component } from 'react';
 class Login extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      email: "",
+      username: ""
+    };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log("form submitted");
+    console.log(this.state.email, this.state.username);
   }
 
   render() {
     return (
       <section>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
           <input type="text" 
-                 placeholder="username"
-                 name="fname"></input>
+                 onChange={(e) => this.setState({username: e.currentTarget.value})}
+                 placeholder="username"></input>
           <input type="text" 
-                 placeholder="email"
-                 name="lname"></input>
+                 onChange={(e) => this.setState({ email: e.currentTarget.value })}
+                 placeholder="email"></input>
           <input type="submit" 
-                 value="Submit"></input>
-        </form>
+                 value="Submit"
+                 onClick={(e) => this.handleSubmit(e)}></input>
       </section>
     );
   }

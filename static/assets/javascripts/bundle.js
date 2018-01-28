@@ -28736,14 +28736,20 @@ var Login = function (_React$Component) {
   function Login(props) {
     _classCallCheck(this, Login);
 
-    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+
+    _this.state = {
+      email: "",
+      username: ""
+    };
+    return _this;
   }
 
   _createClass(Login, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      console.log("form submitted");
+      console.log(this.state.email, this.state.username);
     }
   }, {
     key: "render",
@@ -28753,20 +28759,21 @@ var Login = function (_React$Component) {
       return _react2.default.createElement(
         "section",
         null,
-        _react2.default.createElement(
-          "form",
-          { onSubmit: function onSubmit(e) {
-              return _this2.handleSubmit(e);
-            } },
-          _react2.default.createElement("input", { type: "text",
-            placeholder: "username",
-            name: "fname" }),
-          _react2.default.createElement("input", { type: "text",
-            placeholder: "email",
-            name: "lname" }),
-          _react2.default.createElement("input", { type: "submit",
-            value: "Submit" })
-        )
+        _react2.default.createElement("input", { type: "text",
+          onChange: function onChange(e) {
+            return _this2.setState({ username: e.currentTarget.value });
+          },
+          placeholder: "username" }),
+        _react2.default.createElement("input", { type: "text",
+          onChange: function onChange(e) {
+            return _this2.setState({ email: e.currentTarget.value });
+          },
+          placeholder: "email" }),
+        _react2.default.createElement("input", { type: "submit",
+          value: "Submit",
+          onClick: function onClick(e) {
+            return _this2.handleSubmit(e);
+          } })
       );
     }
   }]);
