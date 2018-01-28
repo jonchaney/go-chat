@@ -3,12 +3,14 @@ import { Route, Switch } from 'react-router-dom';
 
 import Header from "./components/presentationals/header";
 import LoginContainer from "./components/login/loginContainer";
+import ChatClientContainer from "./components/chatClient/chatClientContainer";
 
 const App = () => (
     <div>
         <Route path="/" component={Header}  />
         <Switch>
-            <Route path="/" component={LoginContainer} />
+            <Route exact path="/" component={LoginContainer} />
+            <Route path="/chat" component={ChatClientContainer} />
         </Switch>
     </div>
 );

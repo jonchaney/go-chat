@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Input from '../presentationals/input.js';
 import Button from '../presentationals/button.js';
+import Socket from '../../util/socket.js';
 
 class ChatClient extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class ChatClient extends React.Component {
       email: this.props.email,
       message: ""
     };
+    this.ws = new Socket;
   }
 
   handleSubmit(e) {
@@ -22,9 +24,9 @@ class ChatClient extends React.Component {
       <section>
         <section>
           <Input onChange={(e) => this.setState({ message: e.currentTarget.value })}
-            placeholder="enter message" />
+                 placeholder="enter message" />
           <Button value="submit"
-            onClick={(e) => this.handleSubmit(e)} />
+                  onClick={(e) => this.handleSubmit(e)} />
         </section>
       </section>
     );

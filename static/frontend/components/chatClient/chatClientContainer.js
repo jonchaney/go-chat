@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import ChatClient from './login.jsx';
+import ChatClient from './chatClient.js';
 
 const mapStateToProps = (state) => ({
 
