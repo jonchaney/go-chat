@@ -7,9 +7,7 @@ class Default extends React.Component {
 
   render() {
     return (
-      <section>
-        <h1>Go Chat</h1>
-      </section>
+      <h1>Go chat</h1>
     );
   }
 }

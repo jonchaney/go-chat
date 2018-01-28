@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Input from '../presentationals/input.js';
+import Button from '../presentationals/button.js';
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -17,15 +20,12 @@ class Login extends React.Component {
   render() {
     return (
       <section>
-          <input type="text" 
-                 onChange={(e) => this.setState({username: e.currentTarget.value})}
-                 placeholder="username"></input>
-          <input type="text" 
-                 onChange={(e) => this.setState({ email: e.currentTarget.value })}
-                 placeholder="email"></input>
-          <input type="submit" 
-                 value="Submit"
-                 onClick={(e) => this.handleSubmit(e)}></input>
+        <Input onChange={(e) => this.setState({ username: e.currentTarget.value })}
+               placeholder="username"/>
+        <Input onChange={(e) => this.setState({ email: e.currentTarget.value })}
+               placeholder="email"/>
+        <Button value="submit"
+                onClick={(e) => this.handleSubmit(e)}/>
       </section>
     );
   }
