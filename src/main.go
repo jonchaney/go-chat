@@ -22,7 +22,7 @@ type Message struct {
 
 func main() {
 	// create simple file server
-	fs := http.FileServer(http.Dir("../public/frontend"))
+	fs := http.FileServer(http.Dir("../static"))
 	http.Handle("/", fs)
 
 	// configure WebSocket route
