@@ -8,7 +8,7 @@ class DefaultComponent extends React.Component {
   render() {
     return (
       <section>
-        <h1>React/Redux Boiler Plate</h1>
+        <h1>Go Chat</h1>
       </section>
     );
   }

@@ -22,6 +22,7 @@ type Message struct {
 
 func main() {
 	// create simple file server
+	// in order to server a the index.html file the folder must be called static
 	fs := http.FileServer(http.Dir("../static"))
 	http.Handle("/", fs)
 
