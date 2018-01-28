@@ -1,10 +1,14 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
-import DefaultContainer from "./components/default/defaultContainer";
+import Header from "./components/presentationals/header.jsx";
+import LoginContainer from "./components/login/loginContainer";
 
 const App = () => (
-    <Route exact path="/" component={DefaultContainer} />
+    <div>
+        <Route path="/" component={Header} />
+        <Route path="/" component={LoginContainer} />
+    </div>
 );
 
 export default App;

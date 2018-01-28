@@ -76,6 +76,7 @@ func handleMessages() {
 		msg := <-broadcast
 		// send it to every client that is currently connected
 		for client := range clients {
+			log.Println(msg)
 			err := client.WriteJSON(msg)
 			if err != nil {
 				log.Printf("error: %v", err)
