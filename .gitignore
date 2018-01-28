@@ -1,4 +1,4 @@
 static/frontend/node_modules/
 static/assets/css
 static/assets/javascripts
-~.sass-cache
+.sass-cache
