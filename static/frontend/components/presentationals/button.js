@@ -8,8 +8,8 @@ class Button extends React.Component {
   render() {
     return (
       <input type="submit"
-        onClick={this.props.onClick}
-        value={this.props.value}></input>
+             onClick={this.props.onSubmit}
+             value={this.props.value}></input>
     );
   }
 }

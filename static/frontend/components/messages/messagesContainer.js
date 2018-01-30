@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import ChatClient from './chatClient.js';
+import Messages from './messages.js';
 
 const mapStateToProps = (state) => ({
-  currentUser: state.currentUser
+
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChatClient);
+)(Messages);

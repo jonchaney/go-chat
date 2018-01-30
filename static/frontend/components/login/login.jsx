@@ -26,7 +26,7 @@ class Login extends React.Component {
         <Input onChange={(e) => this.setState({ email: e.currentTarget.value })}
                placeholder="email"/>
         <Button value="submit"
-                onClick={(e) => this.handleSubmit(e)}/>
+                onSubmit={(e) => this.handleSubmit(e)}/>
       </section>
     );
   }
