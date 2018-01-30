@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import SendMessage from './sendMessage.js';
 import Input from '../presentationals/input.js';
 import Button from '../presentationals/button.js';
-import Socket from '../../util/socket.js';
+import Socket from '../socket/socket.js';
 
 class ChatClient extends React.Component {
   constructor(props) {
@@ -13,7 +13,25 @@ class ChatClient extends React.Component {
       email: this.props.currentUser.email,
       message: ""
     };
-    this.ws = new Socket;
+    this.ws = new WebSocket('ws://' + window.location.host + '/ws');
+    this.open();
+    this.receive();
+  }
+
+  open() {
+    this.ws.addEventListener('open', (event) => {
+      console.log("websocket open");
+    });
+  }
+
+  receive() {
+    this.ws.addEventListener('message', (event) => {
+      this.props.createMessage(JSON.parse(event.data));
+    });
+  }
+
+  send(data) {
+    this.ws.send(JSON.stringify(data));
   }
 
   handleSubmit(e) {
@@ -23,18 +41,16 @@ class ChatClient extends React.Component {
       username: this.state.username,
       message: this.state.message
     };
-    this.ws.send(message);
+    this.send(message);
   }
 
   render() {
     return (
       <section>
-        <section>
           <SendMessage onChange={(e) => this.setState({ message: e.currentTarget.value })}
                        onSubmit={(e) => this.handleSubmit(e)}
                        value="submit"
                        placeholder="enter message"  />
-        </section>
       </section>
     );
   }

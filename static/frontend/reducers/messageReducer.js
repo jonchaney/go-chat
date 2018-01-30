@@ -1,13 +1,18 @@
 import merge from 'lodash/merge';
 
-const defaultState = {};
+import { CREATE_MESSAGE } from '../actions/messageActions';
+
+const defaultState = {
+  receievedMessages: []
+};
 
 const MessageReducer = (state = defaultState, action) => {
   Object.freeze(state);
-  let newState;
+  let newState = merge({}, state);
   switch (action.type) {
-    case "DEFAULT":
-      return;
+    case CREATE_MESSAGE:  
+    newState.receievedMessages.push(action.data);
+      return newState;
     default:
       return state;
   }
