@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import { CREATE_MESSAGE } from '../actions/messageActions';
 
 const defaultState = {
-  receievedMessages: []
+  receivedMessages: []
 };
 
 const MessageReducer = (state = defaultState, action) => {
@@ -11,7 +11,7 @@ const MessageReducer = (state = defaultState, action) => {
   let newState = merge({}, state);
   switch (action.type) {
     case CREATE_MESSAGE:  
-    newState.receievedMessages.push(action.data);
+    newState.receivedMessages.push(action.data);
       return newState;
     default:
       return state;

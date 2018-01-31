@@ -4,7 +4,8 @@ import ChatClient from './chatClient.js';
 import { createMessage } from '../../actions/messageActions.js';
 
 const mapStateToProps = (state) => ({
-  currentUser: state.currentUser
+  currentUser: state.currentUser,
+  messages: state.messages.receivedMessages
 });
 
 const mapDispatchToProps = dispatch => ({

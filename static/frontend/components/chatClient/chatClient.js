@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import SendMessage from './sendMessage.js';
+import SendMessage from '../messages/sendMessage.js';
+import Messages from '../messages/messages.js';
 import Input from '../presentationals/input.js';
 import Button from '../presentationals/button.js';
-import Socket from '../socket/socket.js';
 
 class ChatClient extends React.Component {
   constructor(props) {
@@ -47,6 +47,7 @@ class ChatClient extends React.Component {
   render() {
     return (
       <section>
+          <Messages messages={this.props.messages}/>
           <SendMessage onChange={(e) => this.setState({ message: e.currentTarget.value })}
                        onSubmit={(e) => this.handleSubmit(e)}
                        value="submit"

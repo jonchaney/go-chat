@@ -5,8 +5,26 @@ class Messages extends React.Component {
     super(props);
   }
 
+  messages() {
+    const messages = this.props.messages.map((message) => {
+        return ( 
+          <li>
+            <p>{message.username}</p>
+            <p>{message.message}</p>
+          </li>
+        );
+    });
+
+    return (
+      <ul>
+        {messages}
+      </ul>
+    );
+  }
+
+  
   render() {
-    return null;
+    return this.messages();
   }
 }
 
