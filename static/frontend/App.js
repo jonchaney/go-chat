@@ -8,10 +8,7 @@ import ChatClientContainer from "./components/chatClient/chatClientContainer";
 const App = () => (
     <div>
         <Route path="/" component={Header}  />
-        <Switch>
-            <Route exact path="/" component={LoginContainer} />
-            <Route path="/chat" component={ChatClientContainer} />
-        </Switch>
+        <Route path="/" component={ChatClientContainer} />
     </div>
 );
 

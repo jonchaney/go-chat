@@ -63,10 +63,9 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 			delete(clients, ws)
 			break
 		}
-		// send the newly recieved message to the broadcast channel
+		// send the newly received message to the broadcast channel
 		broadcast <- msg
 	}
-
 }
 
 // loop that continously reads from the 'broadcast' channel and then relays the message

@@ -15,18 +15,19 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state.username, this.state.email);
-    this.props.history.push('/chat');
   }
 
   render() {
     return (
-      <section>
-        <Input onChange={(e) => this.setState({ username: e.currentTarget.value })}
-               placeholder="username"/>
-        <Input onChange={(e) => this.setState({ email: e.currentTarget.value })}
-               placeholder="email"/>
-        <Button value="submit"
-                onSubmit={(e) => this.handleSubmit(e)}/>
+      <section className="login">
+        <form onSubmit={(e) => this.handleSubmit(e)}>
+          <Input onChange={(e) => this.setState({ username: e.currentTarget.value })}
+                autoFocus="true"
+                placeholder="username"/>
+          <Input onChange={(e) => this.setState({ email: e.currentTarget.value })}
+                placeholder="email"/>
+          <Button value="submit" />
+          </form>
       </section>
     );
   }

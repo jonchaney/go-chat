@@ -7,9 +7,12 @@ class Input extends React.Component {
 
   render() {
     return (
-      <input type="text"
-             onChange={this.props.onChange}
-             placeholder={this.props.placeholder}></input>
+      <input className="input"
+            type="text"
+            autoFocus={this.props.autoFocus}
+            onChange={this.props.onChange}
+            placeholder={this.props.placeholder}
+            value={this.props.value}></input>
     );
   }
 }

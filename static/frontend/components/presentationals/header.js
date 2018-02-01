@@ -7,7 +7,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <h1>Go chat</h1>
+      <h1>go chat</h1>
     );
   }
 }

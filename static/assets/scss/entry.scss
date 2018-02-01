@@ -1,5 +1,67 @@
 @import 'reset.scss';
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
 h1 {
-  font-family: sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
+  color: #764B7F;
+  font-weight: 300;
+  background-color: #FAE3FF;
+  vertical-align: middle;
+  line-height: 10vh;
+  padding: 0 0 0 2vh;
+  transition: margin 0.25s ease-out;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.15);
+}
+
+.login {
+  font-family: 'Didact Gothic', sans-serif;
+  padding: 0px 0px 0 5px;
+  .input:first-child {
+    margin: 0 5px 0 0;
+  }
+}
+
+.messages {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 13px;
+  font-weight: 100;
+  // display: flex;
+  // flex-direction: column-reverse;
+  min-height: 10vh;
+  height: 60vh;
+  width: 100%;
+  overflow-y: scroll;
+  div {
+    padding: 0 0 0 5px;
+    p:first-child {
+      color: #764B7F;
+    }
+    p:last-child {
+      padding: 0 0 0 10px;
+    }
+    display: flex;
+  }
+}
+
+.send-message {
+  padding: 0px 0px 0 5px;
+}
+
+.input {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 13px;
+  font-weight: 100;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #C8B6CC;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import SendMessage from '../messages/sendMessage.js';
 import Messages from '../messages/messages.js';
+import LoginContainer from '../login/loginContainer.js';
 import Input from '../presentationals/input.js';
 import Button from '../presentationals/button.js';
 
@@ -9,8 +9,6 @@ class ChatClient extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: this.props.currentUser.username,
-      email: this.props.currentUser.email,
       message: ""
     };
     this.ws = new WebSocket('ws://' + window.location.host + '/ws');
@@ -37,21 +35,39 @@ class ChatClient extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let message = {
-      email: this.state.email,
-      username: this.state.username,
+      username: this.props.currentUser.username,
+      email: this.props.currentUser.email,
       message: this.state.message
     };
     this.send(message);
+    this.setState({message: ""});
+  }
+
+  renderChat() {
+    if (this.props.currentUser.username) {
+      return (
+        <section className="send-message">
+          <form onSubmit={(e) => this.handleSubmit(e)}>
+            <Input onChange={(e) => this.setState({ message: e.currentTarget.value })}
+              placeholder="enter message"
+              autoFocus="true"
+              value={this.state.message} />
+            <Button value="submit" />
+          </form>
+        </section>
+      );
+    } else {
+      return <LoginContainer />;
+    }
   }
 
   render() {
     return (
       <section>
           <Messages messages={this.props.messages}/>
-          <SendMessage onChange={(e) => this.setState({ message: e.currentTarget.value })}
-                       onSubmit={(e) => this.handleSubmit(e)}
-                       value="submit"
-                       placeholder="enter message"  />
+          <section>
+            {this.renderChat()}
+          </section>
       </section>
     );
   }
