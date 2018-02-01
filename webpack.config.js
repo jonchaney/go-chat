@@ -3,7 +3,7 @@ var webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
-  entry: './scripts/frontend/index.js',
+  entry: './frontend/index.js',
   output: {
     path: path.resolve(__dirname, 'static', 'javascripts'),
     filename: './bundle.js'
