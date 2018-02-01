@@ -27,7 +27,6 @@ class Messages extends React.Component {
       </div>
     );
   }
-
   
   render() {
     return this.messages();

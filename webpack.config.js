@@ -3,9 +3,9 @@ var webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
-  entry: './frontend/index.js',
+  entry: './scripts/frontend/index.js',
   output: {
-    path: path.resolve(__dirname, 'assets', 'javascripts'),
+    path: path.resolve(__dirname, 'static', 'javascripts'),
     filename: './bundle.js'
   },
   resolve: {
