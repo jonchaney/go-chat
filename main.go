@@ -2,8 +2,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 	// "github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
 )
@@ -31,9 +33,9 @@ func main() {
 
 	// start a go routine to start listenind for incoming chat messages
 	go handleMessages()
-
-	log.Println("http server started on :8000")
-	err := http.ListenAndServe(":8000", nil)
+	port := fmt.Sprintf(":%s", os.Getenv("PORT"))
+	log.Printf("http server started on %v", port)
+	err := http.ListenAndServe(port, nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
