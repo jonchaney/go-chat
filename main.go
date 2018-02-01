@@ -17,7 +17,7 @@ var upgrader = websocket.Upgrader{}          // configure the upgrader
 
 // Message object defined here
 type Message struct {
-	Email    string `json:"email"`
+	// Email    string `json:"email"`
 	Username string `json:"username"`
 	Message  string `json:"message"`
 }
@@ -34,6 +34,9 @@ func main() {
 	// start a go routine to start listenind for incoming chat messages
 	go handleMessages()
 	port := fmt.Sprintf(":%s", os.Getenv("PORT"))
+	if port == ":" {
+		port = ":8000"
+	}
 	log.Printf("http server started on %v", port)
 	err := http.ListenAndServe(port, nil)
 	if err != nil {

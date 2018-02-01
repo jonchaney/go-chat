@@ -7,7 +7,6 @@ class Messages extends React.Component {
 
   componentWillReceiveProps() {
     let element = document.getElementsByClassName('messages');
-    console.log(element[0]);
     element[0].scrollTop = element.scrollHeight; // Auto scroll to the bottom
   }
 

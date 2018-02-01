@@ -18,7 +18,7 @@ class ChatClient extends React.Component {
 
   open() {
     this.ws.addEventListener('open', (event) => {
-      console.log("websocket open");
+      // console.log("websocket open");
     });
   }
 

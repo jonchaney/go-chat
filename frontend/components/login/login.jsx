@@ -7,14 +7,15 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      // email: "",
       username: ""
     };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state.username, this.state.email);
+    // this.props.login(this.state.username, this.state.email);
+    this.props.login(this.state.username);
   }
 
   render() {
@@ -24,9 +25,9 @@ class Login extends React.Component {
           <Input onChange={(e) => this.setState({ username: e.currentTarget.value })}
                 autoFocus="true"
                 placeholder="username"/>
-          <Input onChange={(e) => this.setState({ email: e.currentTarget.value })}
-                placeholder="email"/>
-          <Button value="submit" />
+          {/* <Input onChange={(e) => this.setState({ email: e.currentTarget.value })}
+                placeholder="email"/> */}
+          <Button value="sign in" />
           </form>
       </section>
     );
