@@ -24,10 +24,9 @@ type Message struct {
 
 func main() {
 	// create simple file server
-	// in order to server the index.html file the folder must be called static
+	// in order to serve the index.html file the folder must be called static
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
-	// http.Handle("/", http.StripPrefix("/static/", fs))
 
 	// configure WebSocket route
 	http.HandleFunc("/ws", handleConnections)
