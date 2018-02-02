@@ -1,0 +1,133 @@
+/* Based on the classic meyerweb reset,
+http://meyerweb.com/eric/tools/css/reset/
+Bootstrap's 'normalize'
+https://github.com/twbs/bootstrap-sass/blob/master/vendor/assets/stylesheets/bootstrap/_normalize.scss
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+del {
+  text-decoration: line-through; }
+
+/*//
+// Remove the gray background color from active links in IE 10.
+//*/
+a {
+  background: transparent; }
+
+li {
+  list-style: none; }
+
+/*//
+// 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+//    and `video` controls.
+// 2. Correct inability to style clickable `input` types in iOS.
+// 3. Improve usability and consistency of cursor style between image-type
+//    `input` and others.
+//*/
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+main {
+  flex: 1 0 auto; }
+
+h1 {
+  font-family: 'Didact Gothic', sans-serif;
+  color: #764B7F;
+  font-weight: 300;
+  background-color: #FAE3FF;
+  vertical-align: middle;
+  line-height: 10vh;
+  text-align: right;
+  padding: 0 2vh 0 0;
+  transition: margin 0.25s ease-out;
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15); }
+
+.login {
+  font-family: 'Didact Gothic', sans-serif;
+  margin: 0px 15px 0 15px; }
+
+.messages {
+  padding: 2vh 0 1vh 1vh;
+  font-family: 'Didact Gothic', sans-serif;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: 100;
+  min-height: 10vh;
+  height: 82vh;
+  width: 100%;
+  overflow-y: scroll; }
+  .messages div {
+    padding: 0px 0 0 15px;
+    display: flex; }
+    .messages div p:first-child {
+      color: #764B7F;
+      padding: 0 0 5px 0; }
+    .messages div p:last-child {
+      padding: 0 0 0 10px; }
+
+.send-message {
+  margin: 0px 15px 0 15px; }
+
+.input {
+  width: 99%;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 13px;
+  font-weight: 100;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #C8B6CC;
+  padding: 0 0 1vh 1vh; }
+
+.button {
+  display: none; }
+
+.chat-client {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; }
+
+::-webkit-scrollbar {
+  display: none; }
+
+/*# sourceMappingURL=bundle.css.map */
