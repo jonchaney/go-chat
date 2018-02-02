@@ -63,7 +63,7 @@ class ChatClient extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className="chat-client">
           <Messages messages={this.props.messages}/>
           <section>
             {this.renderChat()}
