@@ -1,4 +1,3 @@
-// this code is based off of the tutorial at https://scotch.io/bar-talk/build-a-realtime-chat-server-with-go-and-websockets
 package main
 
 import (
