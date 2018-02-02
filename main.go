@@ -26,18 +26,21 @@ type Message struct {
 func main() {
 	// create simple file server
 	// in order to server the index.html file the folder must be called static
-	fs := http.FileServer(http.Dir("./static"))
+	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
+	// http.Handle("/", http.StripPrefix("/static/", fs))
 
 	// configure WebSocket route
 	http.HandleFunc("/ws", handleConnections)
 
 	// start a go routine to start listening for incoming chat messages
 	go handleMessages()
+
 	port := fmt.Sprintf(":%s", os.Getenv("PORT"))
 	if port == ":" {
 		port = ":8000"
 	}
+
 	log.Printf("http server started on %v", port)
 	err := http.ListenAndServe(port, nil)
 	if err != nil {
@@ -50,7 +53,7 @@ func main() {
 // 	router := mux.NewRouter()
 
 // 	// router.PathPrefix("/static/").
-// 	// 	Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("/static")))).
+// Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("/static")))).
 // 	// 	Methods("GET")
 
 // 	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
