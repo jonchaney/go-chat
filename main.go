@@ -88,12 +88,15 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Printf("error: %v", err)
 			// we are assuming that if there is an error, the client is no longer connected,
-			// therefor we remove them from the clients map and exit the loops
+			// therefore we remove them from the clients map and exit the loops
 			delete(clients, ws)
 			break
 		}
-		// send the newly received message to the broadcast channel
-		broadcast <- msg
+		// send the newly received message to the broadcast channel unless it is a manual ping
+		// refactor to sending ping packet to server with a pong response...?
+		if msg.Username != "ping" {
+			broadcast <- msg
+		}
 	}
 }
 
@@ -102,9 +105,8 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 func handleMessages() {
 	for {
 		msg := <-broadcast
-		// send it to every client that is currently connected
+		log.Println(msg)
 		for client := range clients {
-			log.Println(msg)
 			err := client.WriteJSON(msg)
 			if err != nil {
 				log.Printf("error: %v", err)

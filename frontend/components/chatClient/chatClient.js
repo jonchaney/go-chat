@@ -11,14 +11,20 @@ class ChatClient extends React.Component {
     this.state = {
       message: ""
     };
-    this.ws = new WebSocket('ws://' + window.location.host + '/wss');
+    this.ws = new WebSocket('ws://' + window.location.host + '/ws');
     this.open();
     this.receive();
   }
 
   open() {
     this.ws.addEventListener('open', (event) => {
-      // console.log("websocket open");
+      // keep ws from timing out
+      window.setInterval(() => {
+        this.ws.send(JSON.stringify({
+          username: "ping",
+          message: "ping"
+        }));
+      }, 25000);
     });
   }
 
@@ -36,7 +42,7 @@ class ChatClient extends React.Component {
     e.preventDefault();
     let message = {
       username: this.props.currentUser.username,
-      email: this.props.currentUser.email,
+      // email: this.props.currentUser.email,
       message: this.state.message
     };
     this.send(message);

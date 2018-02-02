@@ -29071,7 +29071,7 @@ var ChatClient = function (_React$Component) {
     _this.state = {
       message: ""
     };
-    _this.ws = new WebSocket('ws://' + window.location.host + '/wss');
+    _this.ws = new WebSocket('ws://' + window.location.host + '/ws');
     _this.open();
     _this.receive();
     return _this;
@@ -29080,17 +29080,25 @@ var ChatClient = function (_React$Component) {
   _createClass(ChatClient, [{
     key: 'open',
     value: function open() {
+      var _this2 = this;
+
       this.ws.addEventListener('open', function (event) {
-        // console.log("websocket open");
+        // keep ws from timing out
+        window.setInterval(function () {
+          _this2.ws.send(JSON.stringify({
+            username: "ping",
+            message: "ping"
+          }));
+        }, 25000);
       });
     }
   }, {
     key: 'receive',
     value: function receive() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.ws.addEventListener('message', function (event) {
-        _this2.props.createMessage(JSON.parse(event.data));
+        _this3.props.createMessage(JSON.parse(event.data));
       });
     }
   }, {
@@ -29104,7 +29112,7 @@ var ChatClient = function (_React$Component) {
       e.preventDefault();
       var message = {
         username: this.props.currentUser.username,
-        email: this.props.currentUser.email,
+        // email: this.props.currentUser.email,
         message: this.state.message
       };
       this.send(message);
@@ -29113,7 +29121,7 @@ var ChatClient = function (_React$Component) {
   }, {
     key: 'renderChat',
     value: function renderChat() {
-      var _this3 = this;
+      var _this4 = this;
 
       if (this.props.currentUser.username) {
         return _react2.default.createElement(
@@ -29122,10 +29130,10 @@ var ChatClient = function (_React$Component) {
           _react2.default.createElement(
             'form',
             { onSubmit: function onSubmit(e) {
-                return _this3.handleSubmit(e);
+                return _this4.handleSubmit(e);
               } },
             _react2.default.createElement(_input2.default, { onChange: function onChange(e) {
-                return _this3.setState({ message: e.currentTarget.value });
+                return _this4.setState({ message: e.currentTarget.value });
               },
               placeholder: 'enter message',
               autoFocus: 'true',
