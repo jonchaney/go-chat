@@ -4,7 +4,7 @@ current live version is a simple chat app with one chat room. a party chat.
 
 ## Technologies 
 
-- websockets
+- websockets  with "github.com/gorilla/websocket" pkg
 - golang backend
 - react/redux frontend
 
