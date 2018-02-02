@@ -6,7 +6,8 @@ import (
 	"log"
 	"net/http"
 	"os"
-	// "github.com/gorilla/mux"
+	// "github.com/gorilla/csrf"
+
 	"github.com/gorilla/websocket"
 )
 
@@ -24,14 +25,14 @@ type Message struct {
 
 func main() {
 	// create simple file server
-	// in order to server a the index.html file the folder must be called static
+	// in order to server the index.html file the folder must be called static
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fs)
 
 	// configure WebSocket route
 	http.HandleFunc("/ws", handleConnections)
 
-	// start a go routine to start listenind for incoming chat messages
+	// start a go routine to start listening for incoming chat messages
 	go handleMessages()
 	port := fmt.Sprintf(":%s", os.Getenv("PORT"))
 	if port == ":" {
@@ -43,6 +44,28 @@ func main() {
 		log.Fatal("ListenAndServe: ", err)
 	}
 }
+
+// mux router, but not working with websockets
+// func main() {
+// 	router := mux.NewRouter()
+
+// 	// router.PathPrefix("/static/").
+// 	// 	Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("/static")))).
+// 	// 	Methods("GET")
+
+// 	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
+
+// 	router.HandleFunc("/ws", handleConnections)
+// 	go handleMessages()
+
+// 	port := fmt.Sprintf(":%s", os.Getenv("PORT"))
+// 	if port == ":" {
+// 		port = ":8000"
+// 	}
+
+// 	fmt.Println("Serving on port", port)
+// 	log.Fatal(http.ListenAndServe(port, router))
+// }
 
 // handles incoming WebSocket connections
 func handleConnections(w http.ResponseWriter, r *http.Request) {
