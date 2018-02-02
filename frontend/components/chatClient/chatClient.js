@@ -11,7 +11,7 @@ class ChatClient extends React.Component {
     this.state = {
       message: ""
     };
-    this.ws = new WebSocket('ws://' + window.location.host + '/ws');
+    this.ws = new WebSocket('ws://' + window.location.host + '/wss');
     this.open();
     this.receive();
   }

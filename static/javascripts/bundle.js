@@ -29071,7 +29071,7 @@ var ChatClient = function (_React$Component) {
     _this.state = {
       message: ""
     };
-    _this.ws = new WebSocket('ws://' + window.location.host + '/ws');
+    _this.ws = new WebSocket('ws://' + window.location.host + '/wss');
     _this.open();
     _this.receive();
     return _this;

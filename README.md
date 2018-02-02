@@ -1,4 +1,4 @@
-# chat app 
+# go chat - [live](http://go-chat-beta.herokuapp.com/#/)
 ## Technologies 
 
 - websockets
