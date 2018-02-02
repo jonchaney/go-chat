@@ -1,5 +1,5 @@
 node_modules/
-# static/css
-# static/scss
-# static/javascripts
+static/css
+static/scss
+static/javascripts
 .sass-cache
