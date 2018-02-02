@@ -18,7 +18,7 @@ class ChatClient extends React.Component {
 
   open() {
     this.ws.addEventListener('open', (event) => {
-      // keep ws from timing out
+      // keep ws from timing out, refactor to send a ping packet with a pong response...?
       window.setInterval(() => {
         this.ws.send(JSON.stringify({
           username: "ping",

@@ -29083,7 +29083,7 @@ var ChatClient = function (_React$Component) {
       var _this2 = this;
 
       this.ws.addEventListener('open', function (event) {
-        // keep ws from timing out
+        // keep ws from timing out, refactor to send a ping packet with a pong response...?
         window.setInterval(function () {
           _this2.ws.send(JSON.stringify({
             username: "ping",
