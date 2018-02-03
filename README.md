@@ -5,7 +5,7 @@ current live version is a simple chat app with one chat room. a party chat.
 ## Getting Started...
 
 - go get "github.com/gorilla/websocket" in root
-- go run main.go in root
+- go run *.go in root
 - npm install --save in frontend folder
 - webpack --watch in frontend folder
 
