@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-// global variables, usually bad style
+// global variables
 var clients = make(map[*websocket.Conn]bool) // connected clients
 var broadcast = make(chan Message)           // broadcast channel
 var upgrader = websocket.Upgrader{}          // configure the upgrader
