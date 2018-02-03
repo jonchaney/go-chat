@@ -29072,45 +29072,49 @@ var ChatClient = function (_React$Component) {
       message: ""
     };
     _this.ws = new WebSocket('ws://' + window.location.host + '/ws');
-    _this.open();
+    // "ping" the websocket server after 25 seconds of inactivity
+    // refactor to use a real ping
+    _this.ticker = function () {
+      _this.ws.send(JSON.stringify({
+        username: "ping",
+        message: "ping"
+      }));
+    };
+    _this.timer = window.setInterval(_this.ticker, 25000);
     _this.receive();
+    _this.open();
     return _this;
   }
 
   _createClass(ChatClient, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps() {
+      // auto scroll to the bottom of messages
       var element = document.getElementsByClassName('messages');
-      element[0].scrollTop = element[0].scrollHeight; // Auto scroll to the bottom
+      element[0].scrollTop = element[0].scrollHeight;
     }
   }, {
     key: 'open',
     value: function open() {
-      var _this2 = this;
-
       this.ws.addEventListener('open', function (event) {
-        // keep ws from timing out, refactor to send a ping packet with a pong response...?
-        window.setInterval(function () {
-          _this2.ws.send(JSON.stringify({
-            username: "ping",
-            message: "ping"
-          }));
-        }, 25000);
+        console.log("websocket open");
       });
     }
   }, {
     key: 'receive',
     value: function receive() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.ws.addEventListener('message', function (event) {
-        _this3.props.createMessage(JSON.parse(event.data));
+        _this2.props.createMessage(JSON.parse(event.data));
       });
     }
   }, {
     key: 'send',
     value: function send(data) {
+      clearInterval(this.timer);
       this.ws.send(JSON.stringify(data));
+      this.timer = window.setInterval(this.ticker, 25000);
     }
   }, {
     key: 'handleSubmit',
@@ -29127,7 +29131,7 @@ var ChatClient = function (_React$Component) {
   }, {
     key: 'renderChat',
     value: function renderChat() {
-      var _this4 = this;
+      var _this3 = this;
 
       if (this.props.currentUser.username) {
         return _react2.default.createElement(
@@ -29136,10 +29140,10 @@ var ChatClient = function (_React$Component) {
           _react2.default.createElement(
             'form',
             { onSubmit: function onSubmit(e) {
-                return _this4.handleSubmit(e);
+                return _this3.handleSubmit(e);
               } },
             _react2.default.createElement(_input2.default, { onChange: function onChange(e) {
-                return _this4.setState({ message: e.currentTarget.value });
+                return _this3.setState({ message: e.currentTarget.value });
               },
               placeholder: 'enter message',
               autoFocus: 'true',

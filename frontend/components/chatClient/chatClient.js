@@ -12,24 +12,28 @@ class ChatClient extends React.Component {
       message: ""
     };
     this.ws = new WebSocket('ws://' + window.location.host + '/ws');
-    this.open();
+    // "ping" the websocket server after 25 seconds of inactivity
+    // refactor to use a real ping
+    this.ticker = () => {
+      this.ws.send(JSON.stringify({
+        username: "ping",
+        message: "ping"
+      }));
+    };
+    this.timer = window.setInterval(this.ticker, 25000);
     this.receive();
+    this.open();
   }
 
   componentWillReceiveProps() {
+    // auto scroll to the bottom of messages
     let element = document.getElementsByClassName('messages');
-    element[0].scrollTop = element[0].scrollHeight; // Auto scroll to the bottom
+    element[0].scrollTop = element[0].scrollHeight; 
   }
 
   open() {
     this.ws.addEventListener('open', (event) => {
-      // keep ws from timing out, refactor to send a ping packet with a pong response...?
-      window.setInterval(() => {
-        this.ws.send(JSON.stringify({
-          username: "ping",
-          message: "ping"
-        }));
-      }, 25000);
+      console.log("websocket open");
     });
   }
 
@@ -40,7 +44,9 @@ class ChatClient extends React.Component {
   }
 
   send(data) {
+    clearInterval(this.timer);
     this.ws.send(JSON.stringify(data));
+    this.timer = window.setInterval(this.ticker, 25000);
   }
 
   handleSubmit(e) {
