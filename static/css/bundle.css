@@ -87,13 +87,13 @@ h1 {
   margin: 0px 15px 0 15px; }
 
 .messages {
-  padding: 2vh 0 1vh 1vh;
+  padding: 1vh 0 3vh 1vh;
   font-family: 'Didact Gothic', sans-serif;
   overflow: hidden;
   font-size: 13px;
   font-weight: 100;
   min-height: 10vh;
-  height: 82vh;
+  height: 81vh;
   width: 100%;
   overflow-y: scroll; }
   .messages div {

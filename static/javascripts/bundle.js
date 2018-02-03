@@ -29078,6 +29078,12 @@ var ChatClient = function (_React$Component) {
   }
 
   _createClass(ChatClient, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps() {
+      var element = document.getElementsByClassName('messages');
+      element[0].scrollTop = element[0].scrollHeight; // Auto scroll to the bottom
+    }
+  }, {
     key: 'open',
     value: function open() {
       var _this2 = this;
@@ -29201,25 +29207,19 @@ var Messages = function (_React$Component) {
   }
 
   _createClass(Messages, [{
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps() {
-      var element = document.getElementsByClassName('messages');
-      element[0].scrollTop = element.scrollHeight; // Auto scroll to the bottom
-    }
-  }, {
-    key: 'messages',
+    key: "messages",
     value: function messages() {
       var messages = this.props.messages.map(function (message, idx) {
         return _react2.default.createElement(
-          'div',
+          "div",
           { key: idx },
           _react2.default.createElement(
-            'p',
+            "p",
             null,
             message.username
           ),
           _react2.default.createElement(
-            'p',
+            "p",
             null,
             message.message
           )
@@ -29227,13 +29227,13 @@ var Messages = function (_React$Component) {
       });
 
       return _react2.default.createElement(
-        'div',
-        { className: 'messages' },
+        "div",
+        { className: "messages" },
         messages
       );
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       return this.messages();
     }

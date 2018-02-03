@@ -16,6 +16,11 @@ class ChatClient extends React.Component {
     this.receive();
   }
 
+  componentWillReceiveProps() {
+    let element = document.getElementsByClassName('messages');
+    element[0].scrollTop = element[0].scrollHeight; // Auto scroll to the bottom
+  }
+
   open() {
     this.ws.addEventListener('open', (event) => {
       // keep ws from timing out, refactor to send a ping packet with a pong response...?
