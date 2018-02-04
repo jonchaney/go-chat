@@ -15,6 +15,8 @@ func main() {
 
 	// configure WebSocket route
 	http.HandleFunc("/ws", HandleConnections)
+	// auth route
+	// http.HandleFunc("/api/login")
 
 	// start a go routine to start listening for incoming chat messages
 	go HandleMessages()
