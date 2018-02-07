@@ -27,8 +27,8 @@ class ChatClient extends React.Component {
 
   componentWillReceiveProps() {
     // auto scroll to the bottom of messages
-    let element = document.getElementsByClassName('messages');
-    element[0].scrollTop = element[0].scrollHeight; 
+    let element = document.getElementsByClassName('messages')[0];
+    element.scrollTop = element.scrollHeight; 
   }
 
   open() {
