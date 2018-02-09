@@ -33,7 +33,7 @@ func main() {
 	}
 }
 
-// mux router, but not working with websockets
+// mux router, but not working with websockets...not sure why
 // func main() {
 // 	router := mux.NewRouter()
 
