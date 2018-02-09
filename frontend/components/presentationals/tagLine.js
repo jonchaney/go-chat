@@ -9,7 +9,7 @@ class TagLine extends React.Component {
   render() {
     return (
       <section className="tagline">
-        <h2>enter a username at the bottom and invite others to the room by sharing the link</h2>
+        <h2>enter a username at the bottom and invite others to the room by sharing the url</h2>
       </section>
     );
   }

@@ -92,9 +92,7 @@ class ChatClient extends React.Component {
       <section className="chat-client">
           {this.tagLine()}
           <Messages messages={this.props.messages}/>
-          <section>
             {this.renderChat()}
-          </section>
       </section>
     );
   }

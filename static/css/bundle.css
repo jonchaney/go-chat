@@ -82,9 +82,19 @@ h1 {
   transition: margin 0.25s ease-out;
   box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.15); }
 
-.login {
+.input {
+  width: 99%;
   font-family: 'Didact Gothic', sans-serif;
-  margin: 0px 15px 0 15px; }
+  font-size: 13px;
+  font-weight: 100;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #C8B6CC;
+  padding: 0 0 1vh 1vh; }
+
+.button {
+  display: none; }
 
 .messages {
   padding: 2vh 0 3vh 1vh;
@@ -108,19 +118,9 @@ h1 {
 .send-message {
   margin: 0px 15px 0 15px; }
 
-.input {
-  width: 99%;
+.login {
   font-family: 'Didact Gothic', sans-serif;
-  font-size: 13px;
-  font-weight: 100;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  border-bottom: 1px solid #C8B6CC;
-  padding: 0 0 1vh 1vh; }
-
-.button {
-  display: none; }
+  margin: 0px 15px 0 15px; }
 
 .chat-client {
   display: flex;

@@ -1,75 +1,7 @@
 @import 'reset.scss';
-
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
-}
-
-h1 {
-  font-family: 'Didact Gothic', sans-serif;
-  color: #764B7F;
-  font-weight: 300;
-  background-color: #FAE3FF;
-  vertical-align: middle;
-  line-height: 7vh;
-  text-align: right;    
-  padding: 0 2vh 0 0;
-  transition: margin 0.25s ease-out;
-  box-shadow: 0 0 1px 0 rgba(0,0,0,0.15);
-}
-
-.login {
-  font-family: 'Didact Gothic', sans-serif;
-  margin: 0px 15px 0 15px;
-}
-
-.messages {
-  padding: 2vh 0 3vh 1vh;
-  font-family: 'Didact Gothic', sans-serif;
-  overflow: hidden;
-  font-size: 13px;
-  font-weight: 100;
-  min-height: 10vh;
-  height: 79vh;
-  width: 100%;
-  overflow-y: scroll;
-  div {
-    padding: 0px 0 0 15px;
-    p:first-child {
-      color: #764B7F;
-      padding: 0 0 5px 0;
-    }
-    p:last-child {
-      padding: 0 0 0 10px;
-    }
-    display: flex;
-  }
-}
-
-.send-message {
-  margin: 0px 15px 0 15px;
-}
-
-.input {
-  width: 99%;
-  font-family: 'Didact Gothic', sans-serif;
-  font-size: 13px;
-  font-weight: 100;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  border-bottom: 1px solid #C8B6CC;
-  padding: 0 0 1vh 1vh;
-}
-
-.button {
-  display: none;
-}
+@import 'base.scss';
+@import 'messages.scss';
+@import 'auth.scss';
 
 .chat-client {
   display: flex;
