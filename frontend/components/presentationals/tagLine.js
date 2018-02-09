@@ -8,8 +8,8 @@ class TagLine extends React.Component {
 
   render() {
     return (
-      <section className="resume">
-        <h2>enter a username at the bottom and invite other to the room by sharing the link!</h2>
+      <section className="tagline">
+        <h2>enter a username at the bottom and invite others to the room by sharing the link</h2>
       </section>
     );
   }

@@ -15,8 +15,12 @@ class Messages extends React.Component {
         );
     });
 
+    let height = '78vh';
+    if (messages.length === 0) {
+      height = '71vh';
+    }
     return (
-      <div className="messages">
+      <div className="messages" style={{ height: height}}>
         {messages}
       </div>
     );

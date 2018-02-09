@@ -29061,7 +29061,7 @@ var _button = __webpack_require__(83);
 
 var _button2 = _interopRequireDefault(_button);
 
-var _tagline = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./presentationals/tagline.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var _tagline = __webpack_require__(226);
 
 var _tagline2 = _interopRequireDefault(_tagline);
 
@@ -29169,11 +29169,19 @@ var ChatClient = function (_React$Component) {
       }
     }
   }, {
+    key: 'tagLine',
+    value: function tagLine() {
+      if (this.props.messages.length === 0) {
+        return _react2.default.createElement(_tagline2.default, null);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'section',
         { className: 'chat-client' },
+        this.tagLine(),
         _react2.default.createElement(_messages2.default, { messages: this.props.messages }),
         _react2.default.createElement(
           'section',
@@ -29224,33 +29232,37 @@ var Messages = function (_React$Component) {
   }
 
   _createClass(Messages, [{
-    key: "messages",
+    key: 'messages',
     value: function messages() {
       var messages = this.props.messages.map(function (message, idx) {
         return _react2.default.createElement(
-          "div",
+          'div',
           { key: idx },
           _react2.default.createElement(
-            "p",
+            'p',
             null,
             message.username
           ),
           _react2.default.createElement(
-            "p",
+            'p',
             null,
             message.message
           )
         );
       });
 
+      var height = '78vh';
+      if (messages.length === 0) {
+        height = '71vh';
+      }
       return _react2.default.createElement(
-        "div",
-        { className: "messages" },
+        'div',
+        { className: 'messages', style: { height: height } },
         messages
       );
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return this.messages();
     }
@@ -29321,6 +29333,62 @@ var ResumeInfo = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = ResumeInfo;
+
+/***/ }),
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(73);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TagLine = function (_React$Component) {
+  _inherits(TagLine, _React$Component);
+
+  function TagLine(props) {
+    _classCallCheck(this, TagLine);
+
+    return _possibleConstructorReturn(this, (TagLine.__proto__ || Object.getPrototypeOf(TagLine)).call(this, props));
+  }
+
+  _createClass(TagLine, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'section',
+        { className: 'tagline' },
+        _react2.default.createElement(
+          'h2',
+          null,
+          'enter a username at the bottom and invite others to the room by sharing the link'
+        )
+      );
+    }
+  }]);
+
+  return TagLine;
+}(_react2.default.Component);
+
+exports.default = TagLine;
 
 /***/ })
 /******/ ]);

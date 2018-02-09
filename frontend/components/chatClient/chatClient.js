@@ -4,7 +4,7 @@ import Messages from '../messages/messages.js';
 import LoginContainer from '../login/loginContainer.js';
 import Input from '../presentationals/input.js';
 import Button from '../presentationals/button.js';
-import TagLine from './presentationals/tagline.js';
+import TagLine from '../presentationals/tagline.js';
 
 class ChatClient extends React.Component {
   constructor(props) {
@@ -79,9 +79,18 @@ class ChatClient extends React.Component {
     }
   }
 
+  tagLine() {
+    if (this.props.messages.length === 0) {
+      return (
+        <TagLine />
+      );
+    }
+  }
+
   render() {
     return (
       <section className="chat-client">
+          {this.tagLine()}
           <Messages messages={this.props.messages}/>
           <section>
             {this.renderChat()}

@@ -87,7 +87,7 @@ h1 {
   margin: 0px 15px 0 15px; }
 
 .messages {
-  padding: 1vh 0 3vh 1vh;
+  padding: 2vh 0 3vh 1vh;
   font-family: 'Didact Gothic', sans-serif;
   overflow: hidden;
   font-size: 13px;
@@ -135,6 +135,14 @@ h1 {
     color: #764B7F;
     padding: 0 15px 15px 0;
     font-size: 20px; }
+
+.tagline {
+  color: #764B7F;
+  padding: 2vh 0 3vh 2vh; }
+  .tagline h2 {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 13px;
+    font-weight: 100; }
 
 ::-webkit-scrollbar {
   display: none; }
