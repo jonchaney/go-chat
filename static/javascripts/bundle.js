@@ -29264,6 +29264,7 @@ var Messages = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+
       return this.messages();
     }
   }]);
