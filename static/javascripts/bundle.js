@@ -28864,6 +28864,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _resumeinfo = __webpack_require__(225);
+
+var _resumeinfo2 = _interopRequireDefault(_resumeinfo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28885,9 +28889,14 @@ var Header = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'h1',
+        'section',
         null,
-        'go chat'
+        _react2.default.createElement(
+          'h1',
+          null,
+          'go chat'
+        ),
+        _react2.default.createElement(_resumeinfo2.default, null)
       );
     }
   }]);
@@ -29052,6 +29061,10 @@ var _button = __webpack_require__(83);
 
 var _button2 = _interopRequireDefault(_button);
 
+var _tagline = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./presentationals/tagline.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _tagline2 = _interopRequireDefault(_tagline);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29090,8 +29103,8 @@ var ChatClient = function (_React$Component) {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps() {
       // auto scroll to the bottom of messages
-      var element = document.getElementsByClassName('messages');
-      element[0].scrollTop = element[0].scrollHeight;
+      var element = document.getElementsByClassName('messages')[0];
+      element.scrollTop = element.scrollHeight;
     }
   }, {
     key: 'open',
@@ -29247,6 +29260,67 @@ var Messages = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Messages;
+
+/***/ }),
+/* 225 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(73);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ResumeInfo = function (_React$Component) {
+  _inherits(ResumeInfo, _React$Component);
+
+  function ResumeInfo(props) {
+    _classCallCheck(this, ResumeInfo);
+
+    return _possibleConstructorReturn(this, (ResumeInfo.__proto__ || Object.getPrototypeOf(ResumeInfo)).call(this, props));
+  }
+
+  _createClass(ResumeInfo, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'section',
+        { className: 'resume' },
+        _react2.default.createElement(
+          'a',
+          { href: 'https://www.github.com/jonchaney/go-chat' },
+          _react2.default.createElement('i', { className: 'fab fa-github' })
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: 'https://www.linkedin.com/in/jonchaney' },
+          _react2.default.createElement('i', { className: 'fab fa-linkedin' })
+        )
+      );
+    }
+  }]);
+
+  return ResumeInfo;
+}(_react2.default.Component);
+
+exports.default = ResumeInfo;
 
 /***/ })
 /******/ ]);

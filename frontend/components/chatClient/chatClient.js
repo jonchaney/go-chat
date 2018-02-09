@@ -4,6 +4,7 @@ import Messages from '../messages/messages.js';
 import LoginContainer from '../login/loginContainer.js';
 import Input from '../presentationals/input.js';
 import Button from '../presentationals/button.js';
+import TagLine from './presentationals/tagline.js';
 
 class ChatClient extends React.Component {
   constructor(props) {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import ResumeInfo from './resumeinfo.js';
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -7,7 +9,10 @@ class Header extends React.Component {
 
   render() {
     return (
-      <h1>go chat</h1>
+      <section>
+        <h1>go chat</h1>
+        <ResumeInfo/>
+      </section>
     );
   }
 }
