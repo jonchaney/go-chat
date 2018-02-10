@@ -137,12 +137,18 @@ h1 {
     font-size: 20px; }
 
 .tagline {
-  color: #764B7F;
-  padding: 2vh 0 3vh 2vh; }
-  .tagline h2 {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 13px;
-    font-weight: 100; }
+  padding: 2vh 0 3vh 2vh;
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 13px;
+  font-weight: 100;
+  width: 100%;
+  overflow-y: scroll;
+  display: flex; }
+  .tagline p:first-child {
+    color: #764B7F;
+    padding: 0 0 5px 0; }
+  .tagline p:last-child {
+    padding: 0 0 0 10px; }
 
 ::-webkit-scrollbar {
   display: none; }

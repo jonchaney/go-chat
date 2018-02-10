@@ -21,13 +21,21 @@
 }
 
 .tagline {
-  color: #764B7F;
   padding: 2vh 0 3vh 2vh;
-  h2 {
   font-family: 'Didact Gothic', sans-serif;
   font-size: 13px;
   font-weight: 100;
+  width: 100%;
+  overflow-y: scroll;
+    p:first-child {
+      color: #764B7F;
+      padding: 0 0 5px 0;
+    }
+    p:last-child {
+      padding: 0 0 0 10px;
+    }
+    display: flex;
   }
-}
 
 ::-webkit-scrollbar {display:none;}
+
