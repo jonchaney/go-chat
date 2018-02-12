@@ -29364,16 +29364,7 @@ var TagLine = function (_React$Component) {
   function TagLine(props) {
     _classCallCheck(this, TagLine);
 
-    var _this = _possibleConstructorReturn(this, (TagLine.__proto__ || Object.getPrototypeOf(TagLine)).call(this, props));
-
-    _this.state = {
-      greeting: [_react2.default.createElement(
-        'p',
-        { key: 1 },
-        'enter a username at the bottom and invite others to the room by sharing the url'
-      )]
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (TagLine.__proto__ || Object.getPrototypeOf(TagLine)).call(this, props));
   }
 
   _createClass(TagLine, [{
@@ -29387,7 +29378,11 @@ var TagLine = function (_React$Component) {
           null,
           'jonathan'
         ),
-        this.state.greeting
+        _react2.default.createElement(
+          'p',
+          null,
+          'enter a username at the bottom and invite others to the room by sharing the url'
+        )
       );
     }
   }]);
