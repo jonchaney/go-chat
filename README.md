@@ -15,6 +15,13 @@ current live version is a simple chat app with one chat room. a party chat.
 - golang backend
 - react/redux frontend
 
+## Golang Backend
+
+#### see my code comments for how I handled incoming websocket connections in the websockets.go file
+<img src="./docs/handle-connections.png" height="500" />
+<img src="./docs/handle-messages.png" height="300" />
+
+
 ## Future Additions
 
 - user authentication
